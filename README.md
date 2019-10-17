@@ -1,5 +1,6 @@
 # Project-2
 
-##Authors: 
+##Authors:
 
 Rebecca Barrett
+Kevin Halstead
