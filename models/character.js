@@ -1,8 +1,10 @@
 module.exports = function(sequelize, DataTypes) {
-  var Character = sequelize.define("Character", {
+  var Character = sequelize.define("Characters", {
     name: DataTypes.STRING,
-    name: DataTypes.INTEGER,
-    attack_points: DataTypes.INTEGER
+    image: DataTypes.STRING,
+    hp: DataTypes.INTEGER,
+    attack_points_1: DataTypes.INTEGER,
+    attack_points_2: DataTypes.INTEGER
   });
   return Character;
 };
