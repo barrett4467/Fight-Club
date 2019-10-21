@@ -3,19 +3,27 @@ html {
   font-family: "Economica", sans-serif;
 }
 
-.charContainer{
+.charContainer {
   float: left;
   margin: 3.75%;
-  text-align: center; 
+  text-align: center;
 }
-img{
+img {
   height: 500px;
 }
 .imageHolder {
   height: 500px;
 }
 
-#statsHolder{
+#statsHolder {
   color: #ffffff;
   background-color: dodgerblue;
+}
+
+footer {
+  background: whitesmoke;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
