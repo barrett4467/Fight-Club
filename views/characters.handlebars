@@ -8,7 +8,7 @@
             <p class="stats">HP: {{hp}}</p>
             <p class="stats">Attack 1: "{{attack_points_1}}"</p>
             <p class="stats">Attack 2: "{{attack_points_2}}"</p>
-            <button class="btn" id="characterButton" Data-id="{{id}}">Select This Character</button>
+            <button class="btn characterButton" id="{{id}}" onclick='location.href="/fight"'>Select This Character</button>
         </div>
     </div>
     {{/each}}
