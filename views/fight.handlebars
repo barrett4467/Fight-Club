@@ -1,14 +1,14 @@
 <div>
     <h1>This works FIGHT.HTML</h1>
     <div id="selectedChar" class="char">
-        <h1>{{name}}</h1>
-        <div class="img">
-            <img src="{{image}}" alt="{{name}}">
+        <h1>{{character.name}}</h1>
+        <div>
+            <img src="/../{{character.image}}">
         </div>
         <p class="stats">HP: {{hp}}</p>
         <div class="btnContainer">
-            <button class="statBtn">Attack 1: "{{attack_points_1}}"</button>
-            <button class="statBtn">Attack 2: "{{attack_points_2}}"</button>
+            <button class="statBtn">Attack 1: "{{character.attack_points_1}}"</button>
+            <button class="statBtn">Attack 2: "{{character.attack_points_2}}"</button>
         </div>
     </div>
 
