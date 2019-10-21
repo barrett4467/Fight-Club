@@ -13,8 +13,18 @@ module.exports = function(app) {
       res.render("characters",hbsObject);
     });
   });
-  app.get("/fight", function(req, res) {
-    res.render("fight");
+  app.get("/fight/:id", function(req, res) {
+    db.Characters.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data){
+      var hbsObject = {
+        character: data
+      }
+      console.log("The HBSOBJECT IS :" + data.image)
+      res.render("fight",hbsObject);
+    });
   });
   app.get("/leaderboard", function(req, res) {
     res.render("leaderboard");
