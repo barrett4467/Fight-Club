@@ -1,11 +1,17 @@
 var path = require("path");
+var db = require("../models");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
     res.render("index");
   });
   app.get("/characters", function(req, res) {
-    res.render("characters");
+    db.Characters.findAll({}).then(function(data) {
+      var hbsObject = {
+        characters: data
+      };
+      res.render("characters",hbsObject);
+    });
   });
   app.get("/fight", function(req, res) {
     res.render("fight");
