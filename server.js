@@ -12,7 +12,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 app.use(express.static("public"));
-// require("./routes/api-routes")(app)
+require("./routes/api-routes")(app);
 require("./routes/html-routes")(app);
 
 db.sequelize.sync({}).then(function() {
