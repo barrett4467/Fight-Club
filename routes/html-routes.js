@@ -20,6 +20,7 @@ module.exports = function(app) {
       }
     }).then(function(data){
       character = data[0].dataValues;
+      console.log(character);
       res.render("fight", character);
     })
   });

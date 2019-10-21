@@ -1,5 +1,5 @@
 <div>
-    <h1>FIGHT</h1>
+    <h1>This works FIGHT.HTML</h1>
     <div id="selectedChar" class="char">
         <h1>{{character.name}}</h1>
         <div class="img">
@@ -7,8 +7,8 @@
         </div>
         <p class="stats">HP: {{character.hp}}</p>
         <div class="btnContainer">
-            <button class="statBtn">Attack 1: "{{character.attack_points_1}}"</button>
-            <button class="statBtn">Attack 2: "{{character.attack_points_2}}"</button>
+            <button class="character-attack1" data-val="{{attack_points_1}}">Attack 1: {{attack_points_1}}</button>
+            <button class="character-attack2" data-val="{{attack_points_2}}">Attack 2: {{attack_points_2}}</button>
         </div>
     </div>
 
