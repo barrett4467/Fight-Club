@@ -14,7 +14,17 @@ module.exports = function(app) {
     });
   });
   app.get("/fight", function(req, res) {
-    res.render("fight");
+    db.Characters.findOne({
+      where: {
+        id: 1
+      }
+    }).then(function(data) {
+      character = {
+       character: data.dataValues
+      }
+      console.log(character);
+      res.render("fight", character);
+    });
   });
   app.get("/leaderboard", function(req, res) {
     res.render("leaderboard");
