@@ -1,13 +1,13 @@
 $(function(){
-        $(".characterButton").on("click", function(){
+        $(".characterButton").on("click", function(event){
+            event.preventDefault();
             var id = $(this).data("id");
             console.log(id);
-            $.get ("/api/characters/" + id, function(data){
-                var character = data;
+            $.get ("api/characters/", function(data){
+                var character = data[id - 1];
                 console.log(character);
+                return character;
             });
-            res.json(id);
-            return id;
 
         });
     

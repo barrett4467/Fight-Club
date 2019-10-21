@@ -14,18 +14,14 @@ module.exports = function(app) {
     });
   });
   app.get("/fight", function(req, res) {
-    console.log(req.body.id);
-    db.Characters.findOne({
+    db.Characters.findAll({
       where: {
         id: 1
       }
-    }).then(function(data) {
-      character = {
-       character: data.dataValues
-      }
-      // console.log(character);
+    }).then(function(data){
+      character = data[0].dataValues;
       res.render("fight", character);
-    });
+    })
   });
   app.get("/leaderboard", function(req, res) {
     res.render("leaderboard");
