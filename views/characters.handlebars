@@ -1,13 +1,15 @@
 <div class="mainContain">
-    <h1>hello</h1>
+    <h1>Choose Your Character!</h1>
     {{#each characters}}
     <div class="charContainer">
         <h2>Name: {{name}}</h2>
-        <div class="image"><img src="{{image}}" alt="{{name}}"></div>
-        <p class="stats">HP: {{hp}}</p>
-        <p class="stats">Attack 1: "{{attack_points_1}}"</p>
-        <p class="stats">Attack 2: "{{attack_points_2}}"</p>
-        <button class="btn" Data-id="{{id}}"></button>
+        <div class="imageHolder"><img src="{{image}}" alt="{{name}}"></div>
+        <div id="statsHolder">
+            <p class="stats">HP: {{hp}}</p>
+            <p class="stats">Attack 1: "{{attack_points_1}}"</p>
+            <p class="stats">Attack 2: "{{attack_points_2}}"</p>
+            <button class="btn" id="characterButton" Data-id="{{id}}">Select This Character</button>
+        </div>
     </div>
     {{/each}}
 </div>
