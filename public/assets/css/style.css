@@ -2,3 +2,20 @@ body,
 html {
   font-family: "Economica", sans-serif;
 }
+
+.charContainer{
+  float: left;
+  margin: 3.75%;
+  text-align: center; 
+}
+img{
+  height: 500px;
+}
+.imageHolder {
+  height: 500px;
+}
+
+#statsHolder{
+  color: #ffffff;
+  background-color: dodgerblue;
+}
