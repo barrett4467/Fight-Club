@@ -14,6 +14,7 @@ module.exports = function(app) {
     });
   });
   app.get("/fight", function(req, res) {
+    console.log(req.body.id);
     db.Characters.findOne({
       where: {
         id: 1
@@ -22,7 +23,7 @@ module.exports = function(app) {
       character = {
        character: data.dataValues
       }
-      console.log(character);
+      // console.log(character);
       res.render("fight", character);
     });
   });

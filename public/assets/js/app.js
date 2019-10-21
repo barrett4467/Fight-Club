@@ -1,11 +1,14 @@
 $(function(){
         $(".characterButton").on("click", function(){
-            var id = this.id;
+            var id = $(this).data("id");
             console.log(id);
             $.get ("/api/characters/" + id, function(data){
                 var character = data;
                 console.log(character);
             });
+            res.json(id);
+            return id;
+
         });
     
     var score = 100;
@@ -15,7 +18,7 @@ $(function(){
     function checkStats(characterAttack, oppAttackOptions){
         if ($("#character-attack1").data("clicked")|| $("#character-attack2").data("clicked")){
             var loser;
-            
+
             //sets the player attack = to the players attack score
             console.log("Attack: " + characterAttack);
     
