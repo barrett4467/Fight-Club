@@ -7,9 +7,23 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+  app.get("/api/opponents", function(req, res) {
+    db.Opponents.findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
   // render the selected character to the fight html page
   app.get("/api/characters/:id", function(req, res) {
-    db.Post.findOne({
+    db.Characters.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.get("/api/opponents/:id", function(req, res) {
+    db.Opponents.findAll({
       where: {
         id: req.params.id
       }
