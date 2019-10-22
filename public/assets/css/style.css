@@ -1,33 +1,42 @@
-body{
+body {
   font-family: "Economica", sans-serif;
   background-image: url("../img/backgroundtest.jpg");
   background-repeat: no-repeat;
   background-size: 100vw;
 }
 
-.charContainer{
+.charContainer {
   float: left;
   margin: 3.75%;
-  text-align: center;  
+  text-align: center;
 }
-img{
+img {
   height: 500px;
 }
 .imageHolder {
   height: 500px;
 }
 
-#statsHolder{
+#statsHolder {
   color: #ffffff;
   background-color: dodgerblue;
 }
-#selectedChar, #oppChar{
+
+footer {
+  background: whitesmoke;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+#selectedChar,
+#oppChar {
   text-align: center;
-  float:left;
+  float: left;
   width: 50%;
 }
 
-.stats{
+.stats {
   font-size: 200%;
   font-weight: 900;
   margin: 2% 0;
