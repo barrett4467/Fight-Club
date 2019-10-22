@@ -14,11 +14,10 @@
                 {{character.attack_points_2}}</button>
         </div>
     </div>
-
     <div id="oppChar" class="char">
-        <h1>{{name}}</h1>
+        <h1>{{opponent.name}}</h1>
         <div class="img">
-            <img src="{{image}}" alt="{{name}}">
+            <img src="/../{{opponent.image}}" alt="{{opponent.name}}">
         </div>
         {{!-- this will need to be data-val="{{hp}}" eventually --}}
         <p class="oppStats" data-val="150">Opp HP: {{hp}}</p>
