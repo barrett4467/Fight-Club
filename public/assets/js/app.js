@@ -38,7 +38,6 @@ $(function () {
     var opponentHp = 150;
 
     //sets the html to show beginning scores and Opp HP
-    $(".oppStats").html(`Opp HP: ${opponentHp}`);
     $(".score").html(`Score: ${score}`);
 
     function checkStats(character, oppAttackOptions) {
