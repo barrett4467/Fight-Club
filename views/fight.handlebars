@@ -5,18 +5,17 @@
         <div>
             <img src="/../{{character.image}}">
         </div>
-        <p class="stats">HP: {{hp}}</p>
+        <p class="stats">HP: {{character.hp}}</p>
         <div class="btnContainer">
             <button class="statBtn">Attack 1: "{{character.attack_points_1}}"</button>
             <button class="statBtn">Attack 2: "{{character.attack_points_2}}"</button>
         </div>
     </div>
-
     <div id="oppChar" class="char">
-        <h1>{{name}}</h1>
+        <h1>{{opponent.name}}</h1>
         <div class="img">
-            <img src="{{image}}" alt="{{name}}">
+            <img src="/../{{opponent.image}}" alt="{{opponent.name}}">
         </div>
-        <p class="stats">HP: {{hp}}</p>
+        <p class="stats">HP: {{opponent.hp}}</p>
     </div>
 </div>
