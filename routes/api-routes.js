@@ -31,4 +31,15 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+  app.post("/fight:id", function(req,res){
+    console.log(`The req.body contains ${req.params.id}`)
+    db.Characters.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data){
+      console.log(`The data contains ${data}`);
+      res.end();
+    })
+  })
 };
