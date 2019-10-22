@@ -3,13 +3,13 @@
     {{#each characters}}
     <div class="charContainer">
         <h2>Name: {{name}}</h2>
-        <div class="imageHolder"><img src="{{image}}" alt="{{name}}"></div>
+        <div class="imageHolder">
+            {{!-- <img src="../public{{image}}" alt="{{name}}"></div> --}}
         <div id="statsHolder">
             <p class="stats">HP: {{hp}}</p>
             <p class="stats">Attack 1: "{{attack_points_1}}"</p>
             <p class="stats">Attack 2: "{{attack_points_2}}"</p>
-            <button class="btn characterButton" data-id="{{id}}" onclick='location.href="/fight"'>Select This
-                Character</button>
+            <button class="btn" id="characterButton" data-id="{{id}}" onclick='location.href="/fight"'>Select This Character</button>
         </div>
     </div>
     {{/each}}

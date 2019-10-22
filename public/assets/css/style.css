@@ -1,12 +1,14 @@
-body,
-html {
+body{
   font-family: "Economica", sans-serif;
+  /* background-image: url("../img/backgroundtest.jpg"); */
+  background-repeat: no-repeat;
+  background-size: 100vw;
 }
 
 .charContainer{
   float: left;
   margin: 3.75%;
-  text-align: center; 
+  text-align: center;  
 }
 img{
   height: 500px;

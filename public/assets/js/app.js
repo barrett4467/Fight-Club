@@ -1,19 +1,17 @@
 $(function(){
-    $(".characterButton").on("click", function(event){
-        event.preventDefault();
-        var character;
+    $(".btn").on("click", function(event){
         var id = $(this).data("id");
         console.log(id);
-        $.get ("api/characters/", function(data){
-            character = data[id - 1];
-            console.log("character: " + character);
-            res.send(character);
-        });
-        return character;
-    });
-    // var score = 100;
-    // var wins = 0;
-    // var hits = 0;
+        $.ajax("/fight"+id,{
+            type:"POST",
+            data: id
+        }).then(function(){
+            location.href= "/fight/"+id;
+        })
+    })
+    var score = 100;
+    var wins = 0;
+    var hits = 0;
 
 
     // function checkStats(characterAttack, oppAttackOptions){
@@ -70,26 +68,28 @@ $(function(){
     //     };
     // };
     
-    // function playGame (){
-    //     var characterAttack = 0;
-    //     var oppAttackOptions = [5, 20];
+    function playGame (){
+        var characterAttack = 0;
+        var oppAttackOptions = [5, 20];
         
-    //     $(".character-attack1").on("click", function(event){
-    //         $(this).data("clicked", true);
-    //         var characterAttack1 = $(this).data("val");
-    //         characterAttack = characterAttack1;
-    //         checkStats(characterAttack, oppAttackOptions);
-    //     });
-    //     $(".character-attack2").on("click", function(event){
-    //         $(this).data("clicked", true);
-    //         var characterAttack2 = $(this).data("val");
-    //         characterAttack = characterAttack2;
-    //         checkStats(characterAttack, oppAttackOptions);
-    //     });
+        $("#character-attack1").on("click", function(event){
+            alert("clickes");
+            $(this).data("clicked", "true");
+            var characterAttack1 = $(this).data("val");
+            characterAttack = characterAttack1;
+            // checkStats(characterAttack, oppAttackOptions);
+        });
+        $("#character-attack2").on("click", function(event){
+            alert("clickes");
+            $(this).data("clicked", "true");
+            var characterAttack2 = $(this).data("val");
+            characterAttack = characterAttack2;
+            // checkStats(characterAttack, oppAttackOptions);
+        });
     
-    // };
+    };
     
-    // playGame();
+    playGame();
 
 })
 
