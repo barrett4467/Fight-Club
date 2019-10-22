@@ -5,7 +5,8 @@
         <div class="img">
             {{!-- <img src="{{character.image}}" alt="{{character.name}}"> --}}
         </div>
-        <p class="stats" data-val="{{character.hp}}">HP: {{character.hp}}</p>
+        <p class="score">Score: 0</p>
+        <p class="stats" data-val="{{character.hp}}">Character HP: {{character.hp}}</p>
         <div class="btnContainer">
             <button id="character-attack1" data-val="{{character.attack_points_1}}" data-clicked=false>Attack 1:
                 {{character.attack_points_1}}</button>
@@ -20,6 +21,6 @@
             <img src="{{image}}" alt="{{name}}">
         </div>
         {{!-- this will need to be data-val="{{hp}}" eventually --}}
-        <p class="oppStats" data-val="150">HP: {{hp}}</p>
+        <p class="oppStats" data-val="150">Opp HP: {{hp}}</p>
     </div>
 </div>
