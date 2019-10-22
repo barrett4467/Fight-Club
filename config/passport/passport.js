@@ -31,6 +31,7 @@ module.exports = function(passport, user) {
         passReqToCallback: true
       },
       function(req, email, password, done) {
+        console.log("hitting signup");
         var generateHash = function(password) {
           return bCrypt.hashSync(
             password,
@@ -44,8 +45,8 @@ module.exports = function(passport, user) {
             return done(null, false, {
               message: "Email address already in use"
             });
-          } else if (password !== req.body.password2) {
-            return done(null, false, { message: "Password do not match" });
+            // } else if (password !== req.body.password2) {
+            //   return done(null, false, { message: "Password do not match" });
           } else {
             var userPassword = generateHash(password);
             var data = {
