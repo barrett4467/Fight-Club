@@ -51,4 +51,15 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-};
+  app.post("/api/leaderboards/:id", function(req, res){
+    db.Leaderboards.findAll({}).then(function(data){
+      res.json(data);
+    });
+  });
+  app.get("/api/leaderboards/:id", function(req, res){
+    db.Leaderboards.findAll({}).then(function(data){
+      res.json(data);
+    });
+
+  });
+}

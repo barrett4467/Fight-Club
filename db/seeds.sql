@@ -13,3 +13,8 @@ VALUES("Test1", "assets/img/big-guy.png", 150, 3, 5, 1220, 1220),
     ("Test2", "assets/img/camo-guy.png", 270, 4, 2, 1230, 1230),
     ("Test3", "assets/img/pirate-lady.png", 410, 5, 9, 1220, 1220),
     ("Test4", "assets/img/cheetah-head.png", 250, 6, 8, 1220, 1220);
+
+-- Test seeds for LEADERS run in mysql
+INSERT INTO leaderboards
+    (id, name, createdAt, updatedAt)
+VALUES(1, "Test1", 1220, 1230);
