@@ -27,12 +27,10 @@ $(function () {
         playGame(data);
     })
 
+    
     function checkStats(characterAttack, oppAttackOptions, data) {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
             var loser;
-            var hits = 0;
-            var wins = 0;
-            var score = 100;
             //sets the player attack = to the players attack score
             console.log("Attack: " + characterAttack);
 
@@ -93,6 +91,9 @@ $(function () {
     function playGame(data) {
         var characterAttack = 0;
         var oppAttackOptions = [5, 20];
+        var score = 100;
+        var hits = 0;
+        var wins = 0;
 
         $("#character-attack1").on("click", function (event) {
             $("#character-attack1").attr("data-clicked", true);
