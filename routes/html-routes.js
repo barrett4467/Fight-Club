@@ -1,16 +1,16 @@
 var path = require("path");
 var db = require("../models");
 
-module.exports = function(app) {
-  app.get("/", function(req, res) {
+module.exports = function (app) {
+  app.get("/", function (req, res) {
     res.render("index");
   });
-  app.get("/characters", function(req, res) {
-    db.Characters.findAll({}).then(function(data) {
+  app.get("/characters", function (req, res) {
+    db.Characters.findAll({}).then(function (data) {
       var hbsObject = {
         characters: data
       };
-      res.render("characters",hbsObject);
+      res.render("characters", hbsObject);
     });
   });
   app.get("/fight/:id", function(req, res) {
@@ -31,7 +31,13 @@ module.exports = function(app) {
       });
     });
   });
-  app.get("/leaderboard", function(req, res) {
-    res.render("leaderboard");
+  app.get("/leaderboards", function (req, res) {
+    db.LeaderBoard.findAll({}).then(function (data) {
+      var hbsObject = {
+        leaders: data
+      }
+      console.log(hbsObject);
+      res.render("leaderboard");
+    });
   });
 };

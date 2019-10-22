@@ -2,14 +2,17 @@
     <h1>Choose Your Character!</h1>
     {{#each characters}}
     <div class="charContainer">
-        <h2>Name: {{name}}</h2>
-        <div class="imageHolder"><img src="{{image}}" alt="{{name}}"></div>
-        <div id="statsHolder">
-            <p class="stats">HP: {{hp}}</p>
-            <p class="stats">Attack 1: "{{attack_points_1}}"</p>
-            <p class="stats">Attack 2: "{{attack_points_2}}"</p>
-            <button class="btn" id="characterButton" data-id="{{id}}">Select This Character</button>
+        <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
+        <div class="imageHolder">
+            <img src="{{image}}" alt="{{name}}"></div>
+            <div id="statsHolder">
+                <p class="stats" id="hp" data-val="{{hp}}">HP: {{hp}}</p>
+                <p class="stats" id="attack-1" data-val="{{attack_points_1}}">Attack 1: "{{attack_points_1}}"</p>
+                <p class="stats" id="attack-2" data-val="{{attack_points_2}}">Attack 2: "{{attack_points_2}}"</p>
+                <button class="btn" id="characterButton" data-id="{{id}}">Select This Character</button>
+            </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
+
+    {{!-- onclick='location.href="/fight"' --}}
