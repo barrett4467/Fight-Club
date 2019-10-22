@@ -29,3 +29,15 @@ footer {
   width: 100%;
   height: 2.5rem;
 }
+#selectedChar,
+#oppChar {
+  text-align: center;
+  float: left;
+  width: 50%;
+}
+
+.stats {
+  font-size: 200%;
+  font-weight: 900;
+  margin: 2% 0;
+}

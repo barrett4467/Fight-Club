@@ -14,19 +14,30 @@ module.exports = function(app) {
     });
   });
   app.get("/fight/:id", function(req, res) {
-    db.Characters.findOne({
+    db.Opponents.findOne({
       where: {
-        id: req.params.id
+        id: Math.floor(Math.random() * 4) + 1
       }
-    }).then(function(data) {
-      var hbsObject = {
-        character: data
-      };
-      console.log("The HBSOBJECT IS :" + data.image);
-      res.render("fight", hbsObject);
+    }).then(function(data1) {
+      db.Characters.findOne({
+        where: {
+          id: req.params.id
+        }
+      }).then(function(data) {
+        res.render("fight", {
+          opponent: data1,
+          character: data
+        });
+      });
     });
   });
-  app.get("/leaderboard", function(req, res) {
-    res.render("leaderboard");
+  app.get("/leaderboards", function(req, res) {
+    db.LeaderBoard.findAll({}).then(function(data) {
+      var hbsObject = {
+        leaders: data
+      };
+      console.log(hbsObject);
+      res.render("leaderboard");
+    });
   });
 };

@@ -34,7 +34,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  app.post("/fight:id", function(req, res) {
+  app.post("/api/fight/:id", function(req, res) {
     console.log(`The req.body contains ${req.params.id}`);
     db.Characters.findOne({
       where: {
@@ -45,9 +45,28 @@ module.exports = function(app) {
       res.end();
     });
   });
+  app.get("/api/fight/:id", function(req, res) {
+    db.Characters.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.post("/api/leaderboards/:id", function(req, res) {
+    db.Leaderboards.findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
+  app.get("/api/leaderboards/:id", function(req, res) {
+    db.Leaderboards.findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
+
   //Auth info
-  app.get("/signup", authController.signup);
-  app.get("/login", authController.login);
+
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
@@ -55,7 +74,8 @@ module.exports = function(app) {
       failureRedirect: "/signup"
     })
   );
-
+  app.get("/signup", authController.signup);
+  app.get("/login", authController.login);
   app.post(
     "/login",
     passport.authenticate("local-login", {
