@@ -1,6 +1,7 @@
 $(function () {
 
-    $(".btn").on("click", function () {
+    $(".characterButton").on("click", function (event) {
+        event.preventDefault();
         var character = {
             id: $(this).data("id"),
             name: $("#name").attr("data-val"),
@@ -8,9 +9,10 @@ $(function () {
             attack1: $("#attack-1").attr("data-val"),
             attack2: $("#attack-2").attr("data-val")
         }
+        console.log("Id: " + $(this).attr("data-id"));
         console.log(character);
         var id = $(this).data("id");
-        $.ajax("/api/fight/:" + id, {
+        $.ajax("/api/fight/" + id, {
             type: "POST",
             data: character
         }).then(function () {
@@ -22,13 +24,18 @@ $(function () {
     var characterStats;
 
     //grabs info from the /api/fight/:id api route 
-    $.ajax("/api/fight/" + $("#selectedChar").attr("data-val"), {
+    // $.get("/api/fight/" + $("#characterButton").attr("data-val"), function (data){
+    //    console.log("data: " + data);
+    // })
+    console.log($("#characterButton").attr("data-id"));
+    $.ajax("/api/fight/" + $("#characterButton").attr("data-val"), {
         type: "GET"
     }).then(function (data) {
-        characterStats = data;
-
-        //passes in the data so we have access through game 
-        playGame(characterStats);
+        console.log(data);
+        // characterStats = data;
+        // console.log(characterStats);
+        // //passes in the data so we have access through game 
+        // playGame(characterStats);
     })
     var score = 0;
     var hits = 0;

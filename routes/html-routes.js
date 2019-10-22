@@ -24,9 +24,13 @@ module.exports = function(app) {
           id: req.params.id
         }
       }).then(function(data) {
+        console.log(data.dataValues);
+        var hbsObject = {
+          character: data.dataValues
+        }
         res.render("fight", {
           opponent: data1,
-          character: data
+          character: data.dataValues
         });
       });
     });

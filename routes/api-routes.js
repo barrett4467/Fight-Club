@@ -42,7 +42,7 @@ module.exports = function(app) {
       }
     }).then(function(data) {
       console.log(`The data contains ${data}`);
-      res.end();
+      res.json(data);
     });
   });
   app.get("/api/fight/:id", function(req, res) {
