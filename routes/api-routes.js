@@ -55,11 +55,13 @@ module.exports = function(app) {
     });
   });
   app.post("/api/leaderboards/", function(req, res) {
+    console.log(req.user);
     console.log("This: " + req.body.score);
     db.LeaderBoard.create( {
       ranking: 1,
-      name: "test",
-      score: req.body.score
+      name: req.user.email,
+      score: req.body.score,
+      UserId: req.user.id
     }).then(function(data) {
       res.json(data);
     });

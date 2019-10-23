@@ -11,5 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     }
 
   });
+  LeaderBoard.associate = function(models){
+    LeaderBoard.belongsTo(models.User);
+  }
   return LeaderBoard;
 };

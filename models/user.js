@@ -3,5 +3,8 @@ module.exports = function(sequelize, Sequelize) {
     email: { type: Sequelize.STRING, validate: { isEmail: true } },
     password: { type: Sequelize.STRING, allowNull: false }
   });
+  User.associate = function(models){
+    models.User.hasMany(models.LeaderBoard);
+  };
   return User;
 };

@@ -143,7 +143,7 @@ $(function () {
                     }
                 }).then(function(data){
                     console.log("Data: " + data);
-                    location.href = "/leaderboard/" + id;
+                    // location.href = "/leaderboards/";
                 })
 
             };

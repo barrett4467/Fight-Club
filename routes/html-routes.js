@@ -42,6 +42,7 @@ module.exports = function(app) {
     });
   });
   app.get("/leaderboards/", function(req, res) {
+    console.log("This: " + req.user);
     db.LeaderBoard.findAll({}).then(function(data) {
       var hbsObject = {
         leaders: data
