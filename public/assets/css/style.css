@@ -2,6 +2,7 @@ body {
   font-family: "Economica", sans-serif;
   background-image: url("../img/backgroundtest.jpg");
   background-repeat: no-repeat;
+  margin: 0;
 }
 
 .charContainer {
@@ -17,9 +18,11 @@ img {
   height: 500px;
 }
 
-#statsHolder {
+.statsHolder {
   color: red;
   background-color: black;
+  width: 250px;
+  margin: auto;
 }
 
 footer {
@@ -29,6 +32,12 @@ footer {
   bottom: 0;
   width: 100%;
   height: 2.5rem;
+  text-align: center;
+  font-size: xx-large;
+}
+h6 {
+  margin: 0;
+  padding-top: .5%;
 }
 #selectedChar,
 #oppChar {
@@ -36,7 +45,7 @@ footer {
   width: 50%;
 }
 
-.stats {
+.stats, .oppStats, .score {
   font-size: 200%;
   font-weight: 900;
   margin: 2% 0;
@@ -81,7 +90,7 @@ footer {
   margin: auto;
 }
 
-#signBtn, #signUp, #logIn, #logoff {
+.signBtn {
   border-radius: 2%;
   background: red;
 }
