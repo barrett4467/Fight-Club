@@ -2,7 +2,9 @@
     <h1>Choose Your Character!</h1>
     {{#each characters}}
     <div class="charContainer">
-        <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
+        <div class="nameHolder">
+            <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
+        </div>
         <div class="imageHolder">
             <img src="{{image}}" alt="{{name}}"></div>
             <div class="statsHolder">

@@ -1,7 +1,8 @@
 body {
-  font-family: "Economica", sans-serif;
+  font-family: 'Permanent Marker', cursive;
   background-image: url("../img/backgroundtest.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
 }
 
@@ -17,12 +18,25 @@ img {
 .imageHolder {
   height: 500px;
 }
+.nameHolder {
+  color:red;
+  background-color: black;
+  width: 250px;
+  margin: auto;
+  border-radius: 5%;
+  height: 40px;
+}
+.nameHolder > h2 {
+ margin: 0;
+}
 
 .statsHolder {
   color: red;
   background-color: black;
   width: 250px;
   margin: auto;
+  border-radius: 5%;
+  border: solid thin white;
 }
 
 footer {
@@ -58,6 +72,7 @@ h6 {
   justify-content: flex-end;
   width: 100%;
   margin: 0 0 30px;
+  border-bottom: solid 5px white;
 }
 
 #signForm,
@@ -88,11 +103,14 @@ h6 {
   align-content: space-between;
   width: 75%;
   margin: auto;
+  border: solid 5px white;
+  border-radius: 5%;
 }
 
 .signBtn {
   border-radius: 2%;
   background: red;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .flexBox{
@@ -100,4 +118,11 @@ h6 {
   flex-wrap: wrap;
   align-content: space-between;
   margin-bottom: 5%;
+}
+
+a {
+  color: white
+}
+a:hover {
+  color: red;
 }
