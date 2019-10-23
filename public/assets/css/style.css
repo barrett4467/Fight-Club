@@ -1,5 +1,5 @@
 body {
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
   background-image: url("../img/backgroundtest.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -19,7 +19,7 @@ img {
   height: 500px;
 }
 .nameHolder {
-  color:red;
+  color: red;
   background-color: black;
   width: 250px;
   margin: auto;
@@ -27,8 +27,9 @@ img {
   height: 40px;
   margin-bottom: 1.5%;
 }
-.nameHolder > h2, h1 {
- margin: 0;
+.nameHolder > h2,
+h1 {
+  margin: 0;
 }
 
 .statsHolder {
@@ -120,7 +121,7 @@ h6 {
 .signBtn {
   border-radius: 2%;
   background: red;
-  font-family: 'Permanent Marker', cursive;
+  font-family: "Permanent Marker", cursive;
 }
 
 .flexBox {
@@ -131,7 +132,7 @@ h6 {
 }
 
 a {
-  color: white
+  color: white;
 }
 a:hover {
   color: red;
