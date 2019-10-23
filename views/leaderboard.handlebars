@@ -1,1 +1,8 @@
-<h1>THIS WORKS LEADERBOARD.HTML</h1>
+<div class="mainContain">
+    <h1>LEADERBOARD</h1>
+        {{#each leaders}}
+            <h2 id="ranking">ranking: {{ranking}}</h2>
+            <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
+            <h3 id="score">Score: {{score}}</h3>
+        {{/each}}
+    </div>

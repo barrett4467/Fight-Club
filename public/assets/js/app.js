@@ -11,12 +11,14 @@ $(function () {
     var score = 0;
     var hits = 0;
     var wins = 0;
+    var defense = 0;
 
     //sets the html to show beginning scores and Opp HP
     $(".score").html(`Score: ${score}`);
 
     //grabs data from handlebars stores in objects
     var character = {
+        id: $("#selectedChar").attr("data-val"),
         name: $("#characterName").attr("data-val"),
         hp: $("#characterHp").attr("data-val"),
         attack1: $("#character-attack1").attr("data-val"),
@@ -29,10 +31,10 @@ $(function () {
         attack2: $("#opponent-attack2").attr("data-val")
     }
 
-    console.log("Character:")
-    console.log(character);
-    console.log("Opponent:")
-    console.log(opponent);
+    // console.log("Character:")
+    // console.log(character);
+    // console.log("Opponent:")
+    // console.log(opponent);
 
     function checkStats() {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
@@ -61,13 +63,17 @@ $(function () {
                     
                     //more of a bonus might add something that multiplies this later  
                     if (wins === 5){
-                        score = score + 10 * wins;
+                        score = defense + score + 10 * wins;
                         console.log("Booost!!");
                     } else {
-                        score = score + 10;
+                        score = score + 10 + defense;
                         console.log("Score Change")
                     };
-                    
+                    if(opponent.hp > 0){
+                        $(".oppStats").html(`Opponent HP: ${opponent.hp}`);
+                    } else {
+                        $(".oppStats").html(`Opponent HP: 0`);
+                    }
                     //updates the html to show correct scores and Opp HP
                     $(".score").html(`Score: ${score}`);
                     $(".oppStats").html(`Opp HP: ${opponent.hp}`);
@@ -80,6 +86,8 @@ $(function () {
                 } else if (characterAttack === oppAttack) {
                     console.log("You've tied!!");
                     hits++;
+                    defense = defense + 5;
+                    console.log("defense: " + defense);
                     console.log("hits: " + hits);
 
                 //checks if character loses
@@ -87,19 +95,25 @@ $(function () {
                     console.log("Character loses!");
                     character.hp -= oppAttack;
                     hits++;
-
+                    
                     //resets wins counter
                     wins = 0;
 
                     //stops score from hitting a negative number 
-                    if (score === 0){
-                        score = 0;
-                    } else {
-                        score = score - 10;
-                    }   
+                    score = score + defense * hits;
+                    // if (score === 0){
+                        
+                    // } else {
+                    //     score = score - 10 + defense * hits;
+                    // }   
                     //updates the html to show correct scores and hp 
                     $(".score").html(`Score: ${score}`);
-                    $(".stats").html(`Character HP: ${character.hp}`);
+                    if(character.hp > 0){
+                        $(".stats").html(`Character HP: ${character.hp}`);
+                    } else {
+                        $(".stats").html(`Character HP: 0`);
+                    }
+                    
 
                     console.log(`Score:  ${score}`);
                     console.log(`Updated character hp: ${character.hp}`);
@@ -108,26 +122,28 @@ $(function () {
                 };
             //this is the end game 
             } else {
-                if (character.hp <= 0) {
+                if (character.hp === 0 || character.hp < 0) {
                     loser = character.name;
                     console.log(`Ending hits: ${hits}`);
                     console.log(`Ending HP: ${character.hp}`);
                     console.log(`Your character ${character.name} lost!`)
+                    $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
+                    window.location.href = "/leaderboards/" + character.id;
                 } else if (opponent.hp <= 0) {
                     loser = opponent.name;
                     console.log(`You've won!!`);
+                    $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
+                    window.location.href = "/leaderboards/";
                 };
-                //this is eventually going to pull up the leaderboard 
-                alert(`Game Over!! ${loser} has lost!`);
 
                 //will load leaderboard
                 
-                // $.ajax("/api/leaderboard/", characterStats.id, {
-                //     type: "POST",
-                //     data: score
-                // }).then(function(data){
-                //     location.href = "/leaderboard/" + id;
-                // })
+                $.ajax("/api/leaderboards/", {
+                    type: "POST",
+                    data: score
+                }).then(function(data){
+                    location.href = "/leaderboard/" + id;
+                })
             };
 
         };
