@@ -1,6 +1,8 @@
 <div class="flexBox">
     <div id="selectedChar" class="char">
-        <h1>{{character.name}}</h1>
+        <div class="nameHolder">
+            <h1>{{character.name}}</h1>
+        </div>
         <div>
             <img id="characterImg" src="/../{{character.image}}" alt="{{character.name}}">
         </div>
@@ -17,7 +19,9 @@
         </div>
     </div>
     <div id="oppChar" class="char">
-        <h1 id="opponentName" data-val="{{opponent.name}}">{{opponent.name}}</h1>  
+        <div class="nameHolder">
+            <h1 id="opponentName" data-val="{{opponent.name}}">{{opponent.name}}</h1>
+        </div>  
         <div class="img">
             <img id="opponentImg" src="/../{{opponent.image}}" alt="{{opponent.name}}">
         </div>
