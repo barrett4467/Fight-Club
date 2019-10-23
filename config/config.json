@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "D@shank7",
+    "password": "becca",
     "database": "fight_club",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "root",
-    "password": null,
+    "password": "becca",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",

@@ -31,6 +31,8 @@ $(function () {
         attack2: $("#opponent-attack2").attr("data-val")
     }
 
+    console.log(character);
+
     function checkStats() {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
             var loser;
@@ -48,7 +50,8 @@ $(function () {
 
             //checks if character wins
             if (character.hp > 0 && opponent.hp > 0) {
-                if (characterAttack > oppAttack) {
+
+                if (parseInt(characterAttack) > parseInt(oppAttack)) {
                     console.log("Character wins round!");
                     opponent.hp -= characterAttack;
                     console.log(`Updated opp hp: ${opponent.hp}`);
@@ -113,6 +116,7 @@ $(function () {
                 };
             //this is the end game 
             } else {
+
                 if (character.hp === 0 || character.hp < 0) {
                     loser = character.name;
                     console.log(`Ending hits: ${hits}`);
@@ -126,21 +130,25 @@ $(function () {
                     loser = opponent.name;
                     console.log(`You've won!!`);
 
-                    //will take out the modal when leaderboard is loading correct scores
-                    $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
+                    // //will take out the modal when leaderboard is loading correct scores
+                    // $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
                     //this pulls up the leaderboard
-                    // window.location.href = "/leaderboards/";
+                    window.location.href = "/leaderboards/";
                 };
 
                 //will load leaderboard
                 
                 //will post score, needs logic to determine if its high enough to score 
-                // $.ajax("/api/leaderboards/", {
-                //     type: "POST",
-                //     data: score
-                // }).then(function(data){
-                //     location.href = "/leaderboard/" + id;
-                // })
+                $.ajax("/api/leaderboards/", {
+                    type: "POST",
+                    data: {
+                        score
+                    }
+                }).then(function(data){
+                    console.log("Data: " + data);
+                    location.href = "/leaderboards/";
+                })
+
             };
 
         };
