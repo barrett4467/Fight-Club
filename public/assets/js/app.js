@@ -113,6 +113,7 @@ $(function () {
                 };
             //this is the end game 
             } else {
+
                 if (character.hp === 0 || character.hp < 0) {
                     loser = character.name;
                     console.log(`Ending hits: ${hits}`);
@@ -135,12 +136,16 @@ $(function () {
                 //will load leaderboard
                 
                 //will post score, needs logic to determine if its high enough to score 
-                // $.ajax("/api/leaderboards/", {
-                //     type: "POST",
-                //     data: score
-                // }).then(function(data){
-                //     location.href = "/leaderboard/" + id;
-                // })
+                $.ajax("/api/leaderboards/", {
+                    type: "POST",
+                    data: {
+                        score
+                    }
+                }).then(function(data){
+                    console.log("Data: " + data);
+                    location.href = "/leaderboard/" + id;
+                })
+
             };
 
         };

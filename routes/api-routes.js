@@ -55,16 +55,18 @@ module.exports = function(app) {
     });
   });
   app.post("/api/leaderboards/", function(req, res) {
-    db.Leaderboards.findAll({}).then(function(data) {
+    console.log("This: " + req.body.score);
+    db.LeaderBoard.create( {
+      ranking: 1,
+      name: "test",
+      score: req.body.score
+    }).then(function(data) {
       res.json(data);
     });
+
   });
-  app.get("/api/leaderboards/:id", function(req, res) {
-    db.Leaderboards.create({
-      // ranking: req.body.,
-      // name: ,
-      // score: 
-    }).then(function(data) {
+  app.get("/api/leaderboards/", function(req, res) {
+    db.LeaderBoard.findAll({}).then(function(data) {
       res.json(data);
     });
   });
