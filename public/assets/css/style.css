@@ -37,7 +37,7 @@ footer {
   width: 50%;
 }
 
-.stats {
+.stats, .oppStats, .score {
   font-size: 200%;
   font-weight: 900;
   margin: 2% 0;
@@ -82,7 +82,7 @@ footer {
   margin: auto;
 }
 
-#signBtn {
+.signBtn {
   border-radius: 2%;
   background: red;
 }

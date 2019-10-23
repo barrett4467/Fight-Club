@@ -42,7 +42,7 @@ module.exports = function(app) {
       }
     }).then(function(data) {
       console.log(`The data contains ${data}`);
-      res.end();
+      res.json(data);
     });
   });
   app.get("/api/fight/:id", function(req, res) {
@@ -54,16 +54,22 @@ module.exports = function(app) {
       res.json(data);
     });
   });
-  app.post("/api/leaderboards/:id", function(req, res) {
+  app.post("/api/leaderboards/", function(req, res) {
     db.Leaderboards.findAll({}).then(function(data) {
       res.json(data);
     });
   });
   app.get("/api/leaderboards/:id", function(req, res) {
-    db.Leaderboards.findAll({}).then(function(data) {
+    db.Leaderboards.create({
+      // ranking: req.body.,
+      // name: ,
+      // score: 
+    }).then(function(data) {
       res.json(data);
     });
   });
+
+
 
   //Auth info
   app.get("/signup", authController.signup);
