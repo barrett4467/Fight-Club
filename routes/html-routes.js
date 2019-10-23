@@ -31,20 +31,22 @@ module.exports = function(app) {
           id: req.params.id
         }
       }).then(function(data) {
+        var hbsObject = {
+          character: data.dataValues
+        };
         res.render("fight", {
           opponent: data1,
-          character: data
+          character: data.dataValues
         });
       });
     });
   });
-  app.get("/leaderboards", function(req, res) {
+  app.get("/leaderboards/", function(req, res) {
     db.LeaderBoard.findAll({}).then(function(data) {
       var hbsObject = {
         leaders: data
       };
-      console.log(hbsObject);
-      res.render("leaderboard");
+      res.render("leaderboard", hbsObject);
     });
   });
 };

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "D@shank7",
+    "password": "",
     "database": "fight_club",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -17,7 +17,7 @@
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "null",
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
