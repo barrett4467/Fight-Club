@@ -1,7 +1,10 @@
-<div class="mainContain">
+<div class="main">
     <h1>LEADERBOARD</h1>
-        {{#each leaders}}
-            <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
-            <h3 id="score" data-val="{{score}}">Score: {{score}}</h3>
-        {{/each}}
+    {{#each leaders}}
+    <h2 id="name" data-val="{{name}}">Name: {{name}}</h2>
+    <h3 id="score" data-val="{{score}}">Score: {{score}}</h3>
+    {{/each}}
+    <div>
+        <button class="signBtn" onclick='location.href="/characters"'>Play Again?</button>
     </div>
+</div>
