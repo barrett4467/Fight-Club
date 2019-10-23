@@ -3,7 +3,14 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    res.render("index");
+    if (req.user) {
+      var data = {
+        email: req.user.email
+      };
+    } else {
+      var data = {};
+    }
+    res.render("index", data);
   });
   app.get("/characters", function(req, res) {
     db.Characters.findAll({}).then(function(data) {
