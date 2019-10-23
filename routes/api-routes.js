@@ -73,12 +73,10 @@ module.exports = function(app) {
     });
   });
 
-
-
   //Auth info
-  app.get("/signup", authController.signup);
-  app.get("/login", authController.login);
   app.get("/logout", authController.logout);
+  app.get("/login", authController.login);
+  app.get("/signup", authController.signup);
 
   app.post(
     "/signup",
