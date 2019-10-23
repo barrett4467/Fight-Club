@@ -1,17 +1,19 @@
-<div>
-    <div id="selectedChar" class="char" data-val="{{character.id}}">
-        <h1 id="characterName" data-val="{{character.name}}">{{character.name}}</h1>
+<div class="flexBox">
+    <div id="selectedChar" class="char">
+        <h1>{{character.name}}</h1>
         <div>
             <img id="characterImg" src="/../{{character.image}}" alt="{{character.name}}">
         </div>
-        <p class="stats" id="characterHp" data-val="{{character.hp}}">Character HP: {{character.hp}}</p>
-        <div class="btnContainer">
-            <button class="signBtn" id="character-attack1" data-val="{{character.attack_points_1}}"
-                data-clicked=false>Attack 1:
-                {{character.attack_points_1}}</button>
-            <button class="signBtn" id="character-attack2" data-val="{{character.attack_points_2}}"
-                data-clicked=false>Attack 2:
-                {{character.attack_points_2}}</button>
+        <div class="statsHolder">
+            <p class="stats" id="characterHp" data-val="{{character.hp}}">Character HP: {{character.hp}}</p>
+            <div class="btnContainer">
+                <button class="signBtn" id="character-attack1" data-val="{{character.attack_points_1}}"
+                    data-clicked=false>Attack 1:
+                    {{character.attack_points_1}}</button>
+                <button class="signBtn" id="character-attack2" data-val="{{character.attack_points_2}}"
+                    data-clicked=false>Attack 2:
+                    {{character.attack_points_2}}</button>
+            </div>
         </div>
     </div>
     <div id="oppChar" class="char">
@@ -19,11 +21,13 @@
         <div class="img">
             <img id="opponentImg" src="/../{{opponent.image}}" alt="{{opponent.name}}">
         </div>
-        <p class="oppStats" id="opponentHp" data-val={{opponent.hp}}>Opp HP: {{opponent.hp}}</p>
-        {{!-- I added these so I can pass the hit values in to app.js--}}
-        <p id= "opponent-attack1" data-val="{{opponent.attack_points_1}}"></p>
-        <p id="opponent-attack2" data-val="{{opponent.attack_points_2}}"></p>
-        <p class="score">Score: 0</p>
+        <div class="statsHolder">
+            <p class="oppStats" id="opponentHp" data-val={{opponent.hp}}>Opp HP: {{opponent.hp}}</p>
+            {{!-- I added these so I can pass the hit values in to app.js--}}
+            <p id= "opponent-attack1" data-val="{{opponent.attack_points_1}}"></p>
+            <p id="opponent-attack2" data-val="{{opponent.attack_points_2}}"></p>
+            <p class="score">Score: 0</p>
+        </div>
     </div>
     <div id="scoreModel" class="modal">
     <p>Game Over!! Your final score was: </p>
