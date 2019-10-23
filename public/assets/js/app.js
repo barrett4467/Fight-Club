@@ -31,6 +31,8 @@ $(function () {
         attack2: $("#opponent-attack2").attr("data-val")
     }
 
+    console.log(character);
+
     function checkStats() {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
             var loser;
@@ -48,7 +50,8 @@ $(function () {
 
             //checks if character wins
             if (character.hp > 0 && opponent.hp > 0) {
-                if (characterAttack > oppAttack) {
+
+                if (parseInt(characterAttack) > parseInt(oppAttack)) {
                     console.log("Character wins round!");
                     opponent.hp -= characterAttack;
                     console.log(`Updated opp hp: ${opponent.hp}`);
@@ -127,10 +130,10 @@ $(function () {
                     loser = opponent.name;
                     console.log(`You've won!!`);
 
-                    //will take out the modal when leaderboard is loading correct scores
-                    $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
+                    // //will take out the modal when leaderboard is loading correct scores
+                    // $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
                     //this pulls up the leaderboard
-                    // window.location.href = "/leaderboards/";
+                    window.location.href = "/leaderboards/";
                 };
 
                 //will load leaderboard
@@ -143,7 +146,7 @@ $(function () {
                     }
                 }).then(function(data){
                     console.log("Data: " + data);
-                    // location.href = "/leaderboards/";
+                    location.href = "/leaderboards/";
                 })
 
             };
