@@ -18,12 +18,13 @@ img {
 }
 
 #statsHolder {
-  color: #ffffff;
-  background-color: dodgerblue;
+  color: red;
+  background-color: black;
 }
 
 footer {
-  background: whitesmoke;
+  background: black;
+  color: red;
   position: fixed;
   bottom: 0;
   width: 100%;

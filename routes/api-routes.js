@@ -1,5 +1,5 @@
 var db = require("../models");
-// var isLoggedIn = require("../config/middleware/isLoggedIn");
+var isLoggedIn = require("../config/middleware/isLoggedIn");
 var authController = require("../controllers/authController.js");
 var passport = require("passport");
 
