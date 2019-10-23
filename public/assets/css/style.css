@@ -41,3 +41,60 @@ footer {
   font-weight: 900;
   margin: 2% 0;
 }
+.navContainer {
+  background: black;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 0 0 30px;
+}
+
+#signForm,
+#loginForm {
+  background: black;
+  font-weight: 900;
+  font-size: larger;
+  color: red;
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  width: 75%;
+  margin: auto;
+}
+
+.main {
+  background: black;
+  font-weight: 900;
+  font-size: larger;
+  color: red;
+  text-align: center;
+  display: flex;
+  height: 300px;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  width: 75%;
+  margin: auto;
+}
+
+#signBtn {
+  border-radius: 2%;
+  background: red;
+}
+
+#signUp {
+  border-radius: 2%;
+  background: red;
+}
+#logIn {
+  border-radius: 2%;
+  background: red;
+}
+#logoff {
+  border-radius: 2%;
+  background: red;
+}
