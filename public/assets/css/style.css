@@ -51,7 +51,7 @@ footer {
 }
 h6 {
   margin: 0;
-  padding-top: .5%;
+  padding-top: 0.5%;
 }
 #selectedChar,
 #oppChar {
@@ -59,7 +59,9 @@ h6 {
   width: 50%;
 }
 
-.stats, .oppStats, .score {
+.stats,
+.oppStats,
+.score {
   font-size: 200%;
   font-weight: 900;
   margin: 2% 0;
@@ -113,7 +115,7 @@ h6 {
   font-family: 'Permanent Marker', cursive;
 }
 
-.flexBox{
+.flexBox {
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
