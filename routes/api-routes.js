@@ -1,5 +1,5 @@
 var db = require("../models");
-// var isLoggedIn = require("../config/middleware/isLoggedIn");
+var isLoggedIn = require("../config/middleware/isLoggedIn");
 var authController = require("../controllers/authController.js");
 var passport = require("passport");
 
@@ -72,6 +72,9 @@ module.exports = function(app) {
 
 
   //Auth info
+  app.get("/signup", authController.signup);
+  app.get("/login", authController.login);
+  app.get("/logout", authController.logout);
 
   app.post(
     "/signup",
@@ -80,8 +83,6 @@ module.exports = function(app) {
       failureRedirect: "/signup"
     })
   );
-  app.get("/signup", authController.signup);
-  app.get("/login", authController.login);
   app.post(
     "/login",
     passport.authenticate("local-login", {
