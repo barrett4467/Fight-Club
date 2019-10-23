@@ -15,6 +15,8 @@
                 <button class="signBtn" id="character-attack2" data-val="{{character.attack_points_2}}"
                     data-clicked=false>Attack 2:
                     {{character.attack_points_2}}</button>
+                    <div id="status"></div>
+                    <div id="update"></div>
             </div>
         </div>
     </div>
@@ -31,11 +33,7 @@
             <p id= "opponent-attack1" data-val="{{opponent.attack_points_1}}"></p>
             <p id="opponent-attack2" data-val="{{opponent.attack_points_2}}"></p>
             <p class="score">Score: 0</p>
+            <div id="oppUpdate"></div>
         </div>
-    </div>
-    <div id="scoreModel" class="modal">
-    <p>Game Over!! Your final score was: </p>
-    <p class="score">Score: 0</p>
-    <a href="#" rel="modal:close">Close</a>
     </div>
 </div>

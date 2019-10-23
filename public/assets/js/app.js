@@ -36,11 +36,15 @@ $(function () {
     function checkStats() {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
             var loser;
-            
+            var change = 0;
             var oppAttackArr = [opponent.attack1, opponent.attack2];
             //randomizes the opp attack 
             var oppAttack = oppAttackArr[Math.floor(Math.random(oppAttackArr) * oppAttackArr.length)];
             
+            $("#oppUpdate").html(``);
+            $("#update").html(``);
+            $("#status").html(``);
+
             console.log("==========================");
             console.log("Attack: " + characterAttack);
             console.log("Opp Attack: " + oppAttack);
@@ -58,7 +62,8 @@ $(function () {
 
                     hits++;
                     wins++;
-                    
+                    $("#oppUpdate").html(`<p>Opponent Attack: -${characterAttack}</p>`);
+                    $("#status").html(`<p>Way to Go!</p>`);
                     //more of a bonus might add something that multiplies this later  
                     if (wins === 5){
                         score = defense + score + 10 * wins;
@@ -82,6 +87,7 @@ $(function () {
 
                 //checks for ties 
                 } else if (characterAttack === oppAttack) {
+                    $("#status").html(`<p>Nice block!</p>`);
                     console.log("You've tied!!");
                     hits++;
                     defense = defense + 5;
@@ -90,6 +96,7 @@ $(function () {
 
                 //checks if character loses
                 } else {
+                    $("#status").html(`<p>Better luck next time!</p>`);
                     console.log("Character loses!");
                     character.hp -= oppAttack;
                     hits++;
@@ -100,6 +107,7 @@ $(function () {
                     //sets score 
                     score = score + defense * hits;
 
+                    $("#update").html(`<p>Opponent Attack: -${oppAttack}</p>`);
                     //updates the html to show correct scores and hp 
                     $(".score").html(`Score: ${score}`);
                     if(character.hp > 0){
@@ -122,32 +130,40 @@ $(function () {
                     console.log(`Ending hits: ${hits}`);
                     console.log(`Ending HP: ${character.hp}`);
                     console.log(`Your character ${character.name} lost!`)
-                    //will take out the modal when leaderboard is loading correct scores
-                    $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
-                    //this pulls up the leaderboard
-                    // window.location.href = "/leaderboards/";
+                    //will post score, needs logic to determine if its high enough to score 
+                    $.ajax("/api/leaderboards/", {
+                        type: "POST",
+                        data: {
+                            score
+                        }
+                    }).then(function(data){
+                        console.log("Data: " + data);
+                        setTimeout(window.location.reload(), 2000);
+                    })
+
+                    window.location.href = "/leaderboards/";
+                
                 } else if (opponent.hp <= 0) {
                     loser = opponent.name;
                     console.log(`You've won!!`);
+                    //will post score, needs logic to determine if its high enough to score 
+                    $.ajax("/api/leaderboards/", {
+                        type: "POST",
+                        data: {
+                            score
+                        }
+                    }).then(function(data){
+                        console.log("Data: " + data);
+                        location.href = "/leaderboards/";
+                        setTimeout(window.location.reload(), 2000);
+                    })
 
-                    // //will take out the modal when leaderboard is loading correct scores
-                    // $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
-                    //this pulls up the leaderboard
                     window.location.href = "/leaderboards/";
+                
                 };
 
-                //will load leaderboard
                 
-                //will post score, needs logic to determine if its high enough to score 
-                $.ajax("/api/leaderboards/", {
-                    type: "POST",
-                    data: {
-                        score
-                    }
-                }).then(function(data){
-                    console.log("Data: " + data);
-                    location.href = "/leaderboards/";
-                })
+
 
             };
 
