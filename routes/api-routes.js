@@ -63,18 +63,16 @@ module.exports = function(app) {
     db.Leaderboards.create({
       // ranking: req.body.,
       // name: ,
-      // score: 
+      // score:
     }).then(function(data) {
       res.json(data);
     });
   });
 
-
-
   //Auth info
-  app.get("/signup", authController.signup);
-  app.get("/login", authController.login);
   app.get("/logout", authController.logout);
+  app.get("/login", authController.login);
+  app.get("/signup", authController.signup);
 
   app.post(
     "/signup",
