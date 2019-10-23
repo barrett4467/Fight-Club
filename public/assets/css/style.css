@@ -36,7 +36,7 @@ footer {
   width: 50%;
 }
 
-.stats {
+.stats, .oppStats, .score {
   font-size: 200%;
   font-weight: 900;
   margin: 2% 0;
