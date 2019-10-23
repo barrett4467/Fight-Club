@@ -31,11 +31,6 @@ $(function () {
         attack2: $("#opponent-attack2").attr("data-val")
     }
 
-    // console.log("Character:")
-    // console.log(character);
-    // console.log("Opponent:")
-    // console.log(opponent);
-
     function checkStats() {
         if ($("#character-attack1").attr("data-clicked") || $("#character-attack2").attr("data-clicked")) {
             var loser;
@@ -99,13 +94,9 @@ $(function () {
                     //resets wins counter
                     wins = 0;
 
-                    //stops score from hitting a negative number 
+                    //sets score 
                     score = score + defense * hits;
-                    // if (score === 0){
-                        
-                    // } else {
-                    //     score = score - 10 + defense * hits;
-                    // }   
+
                     //updates the html to show correct scores and hp 
                     $(".score").html(`Score: ${score}`);
                     if(character.hp > 0){
@@ -127,23 +118,29 @@ $(function () {
                     console.log(`Ending hits: ${hits}`);
                     console.log(`Ending HP: ${character.hp}`);
                     console.log(`Your character ${character.name} lost!`)
+                    //will take out the modal when leaderboard is loading correct scores
                     $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
-                    window.location.href = "/leaderboards/" + character.id;
+                    //this pulls up the leaderboard
+                    // window.location.href = "/leaderboards/";
                 } else if (opponent.hp <= 0) {
                     loser = opponent.name;
                     console.log(`You've won!!`);
+
+                    //will take out the modal when leaderboard is loading correct scores
                     $(`<p>Game Over!! Your final score is ${score}</p>`).modal();
-                    window.location.href = "/leaderboards/";
+                    //this pulls up the leaderboard
+                    // window.location.href = "/leaderboards/";
                 };
 
                 //will load leaderboard
                 
-                $.ajax("/api/leaderboards/", {
-                    type: "POST",
-                    data: score
-                }).then(function(data){
-                    location.href = "/leaderboard/" + id;
-                })
+                //will post score, needs logic to determine if its high enough to score 
+                // $.ajax("/api/leaderboards/", {
+                //     type: "POST",
+                //     data: score
+                // }).then(function(data){
+                //     location.href = "/leaderboard/" + id;
+                // })
             };
 
         };
@@ -153,12 +150,14 @@ $(function () {
 
     function playGame() {
 
+        //tracks which attack user presses
         $("#character-attack1").on("click", function () {
             $("#character-attack1").attr("data-clicked", true);
             characterAttack = character.attack1;
             console.log(characterAttack);
             checkStats();
         });
+        
         $("#character-attack2").on("click", function () {
             $("#character-attack2").attr("data-clicked", true);
             characterAttack = character.attack2;

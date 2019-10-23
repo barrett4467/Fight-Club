@@ -82,7 +82,7 @@ footer {
   margin: auto;
 }
 
-#signBtn {
+.signBtn {
   border-radius: 2%;
   background: red;
 }
