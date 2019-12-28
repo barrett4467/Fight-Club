@@ -46,5 +46,5 @@ We are currently working to be able to battle against more then one opponent in 
 ## Walkthrough
 ![](fightclub.gif)
 
-##Check it out at:
+## Check it out at:
 https://shrouded-peak-73900.herokuapp.com/fight/2
