@@ -41,3 +41,10 @@ We are currently working to be able to battle against more then one opponent in 
 - Rebecca Barrett - https://github.com/barrett4467
 - Kailer Smith - https://github.com/KailerS
 - Kevin Halstead - https://github.com/Mrmichael423
+
+
+## Walkthrough
+![](fightclub.gif)
+
+##Check it out at:
+https://shrouded-peak-73900.herokuapp.com/fight/2
